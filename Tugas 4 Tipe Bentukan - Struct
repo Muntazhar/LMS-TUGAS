@@ -1,0 +1,241 @@
+
+2. Buatlah program sederhana yang berisi deklarasi bertipe struct
+
+##include “stdio.h”
+#include “conio.h”
+#include “string.h”
+
+struct data_mahasiswa
+{
+char NIM [11];
+char Nama[21];
+int Nilai;
+};
+
+main()
+{
+data_mahasiswa mhs1,mhs2;
+printf(“Pengisian Data\n”);
+printf(“NIM : “); gets(mhs1.NIM);
+printf(“NAMA : “); gets(mhs1.Nama);
+printf(“Nilai : “); scanf(“%d”, &mhs1.Nilai);
+mhs2=mhs1;
+
+printf(“Data yang telah dimasukkan :\n”);
+printf(“NIM : %s\n”, mhs2.NIM);
+printf(“NAMA : %s\n”, mhs2.Nama);
+printf(“Nilai: %i\n”, mhs2.Nilai);
+
+getch();
+}
+
+
+3. Buatlah program sederhana yang berisi variabel bertipe struct
+
+#include “stdio.h”
+#include “conio.h”
+#include “string.h”
+
+struct data_mahasiswa
+{
+char NIM [11];
+char Nama[21];
+int Nilai;
+};
+
+main()
+{
+data_mahasiswa mhs1,mhs2;
+printf(“Pengisian Data\n”);
+printf(“NIM : “); gets(mhs1.NIM);
+printf(“NAMA : “); gets(mhs1.Nama);
+printf(“Nilai : “); scanf(“%d”, &mhs1.Nilai);
+mhs2=mhs1;
+
+printf(“Data yang telah dimasukkan :\n”);
+printf(“NIM : %s\n”, mhs2.NIM);
+printf(“NAMA : %s\n”, mhs2.Nama);
+printf(“Nilai: %i\n”, mhs2.Nilai);
+
+getch();
+}
+
+4. Buatlah program sederhana yang berisi pengaksesan anggota (variabel) struct
+
+#include <iostream>
+#include <string>
+using namespace std;
+ 
+struct siswa{
+    int no_induk ;
+    string nama;
+    float nilai ;
+}; 
+ 
+int main(){
+    siswa budi, tono; //deklarasi object di luar struct
+ 
+    budi.no_induk = 1;
+    budi.nama = "Budi Januar";
+    budi.nilai = 75.5;
+ 
+    tono.no_induk = 2;
+    tono.nama = "Tono Laksono";
+    tono.nilai = 89.9;
+ 
+    cout<<budi.nama<<" mendapatkan nilai "<<budi.nilai<<endl;
+    cout<<tono.nama<<" mendapatkan nilai "<<tono.nilai<<endl;
+ 
+    return 0;
+}
+
+5. Buatlah program sederhana yang berisi deklarasi tipe struct di dalam struct
+
+#include<stdio.h>
+ 
+struct orang
+{
+    char nama[50];
+    int umur;
+    char tl[10];
+};
+ 
+struct siswa
+{
+    struct orang info;
+    long stambuk_no;
+    float nilai;
+};
+ 
+int main()
+{
+    struct siswa s1;
+ 
+    printf("Detail Siswa: \n\n");
+ 
+    printf("Masukkan Nama: ");
+    scanf("%s", s1.info.nama);
+ 
+    printf("Masukkan Umur: ");
+    scanf("%d", &s1.info.umur);
+ 
+    printf("Masukkan Tanggal Lahir: ");
+    scanf("%s", s1.info.tl);
+ 
+    printf("Masukkan Stambuk: ");
+    scanf("%d", &s1.stambuk_no);
+ 
+    printf("Masukkan Nilai: ");
+    scanf("%f", &s1.nilai);
+ 
+    printf("\n*******************************\n\n");
+ 
+    printf("Nama: %s\n", s1.info.nama);
+    printf("Umur: %d\n", s1.info.umur);
+    printf("Tanggal Lahir: %s\n", s1.info.tl);
+    printf("Stambuk: %d\n", s1.stambuk_no);
+    printf("Nilai: %.2f\n", s1.nilai);
+ 
+    return 0;
+}
+
+6. Buatlah program sederhana yang berisi akses anggota (variable) struct di dalam struct
+
+
+#include<stdio.h>
+ 
+struct orang
+{
+    char nama[50];
+    int umur;
+    char tl[10];
+};
+ 
+struct siswa
+{
+    struct orang info;
+    long stambuk_no;
+    float nilai;
+};
+ 
+int main()
+{
+    struct siswa s1;
+ 
+    printf("Detail Siswa: \n\n");
+ 
+    printf("Masukkan Nama: ");
+    scanf("%s", s1.info.nama);
+ 
+    printf("Masukkan Umur: ");
+    scanf("%d", &s1.info.umur);
+ 
+    printf("Masukkan Tanggal Lahir: ");
+    scanf("%s", s1.info.tl);
+ 
+    printf("Masukkan Stambuk: ");
+    scanf("%d", &s1.stambuk_no);
+ 
+    printf("Masukkan Nilai: ");
+    scanf("%f", &s1.nilai);
+ 
+    printf("\n*******************************\n\n");
+ 
+    printf("Nama: %s\n", s1.info.nama);
+    printf("Umur: %d\n", s1.info.umur);
+    printf("Tanggal Lahir: %s\n", s1.info.tl);
+    printf("Stambuk: %d\n", s1.stambuk_no);
+    printf("Nilai: %.2f\n", s1.nilai);
+ 
+    return 0;
+}
+
+7. Buatlah program sederhana yang berisi penugasan struct
+
+#include<stdio.h>
+ 
+struct orang
+{
+    char nama[50];
+    int umur;
+    char tl[10];
+};
+ 
+struct siswa
+{
+    struct orang info;
+    long stambuk_no;
+    float nilai;
+};
+ 
+int main()
+{
+    struct siswa s1;
+ 
+    printf("Detail Siswa: \n\n");
+ 
+    printf("Masukkan Nama: ");
+    scanf("%s", s1.info.nama);
+ 
+    printf("Masukkan Umur: ");
+    scanf("%d", &s1.info.umur);
+ 
+    printf("Masukkan Tanggal Lahir: ");
+    scanf("%s", s1.info.tl);
+ 
+    printf("Masukkan Stambuk: ");
+    scanf("%d", &s1.stambuk_no);
+ 
+    printf("Masukkan Nilai: ");
+    scanf("%f", &s1.nilai);
+ 
+    printf("\n*******************************\n\n");
+ 
+    printf("Nama: %s\n", s1.info.nama);
+    printf("Umur: %d\n", s1.info.umur);
+    printf("Tanggal Lahir: %s\n", s1.info.tl);
+    printf("Stambuk: %d\n", s1.stambuk_no);
+    printf("Nilai: %.2f\n", s1.nilai);
+ 
+    return 0;
+}
