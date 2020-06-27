@@ -1,0 +1,224 @@
+1. Buat program sederhana yang menunjukkan passing by reference pada struktur sebagai argumen dari fungsi
+
+#include <iostream>
+using namespace std;
+ 
+void naik_turun(int &penaikan, int &penurunan, int nilai, int jumlah);//function prototype
+ 
+int main(){
+    int hasilNaik=0, hasilTurun=0, nilai=10;
+ 
+    naik_turun(hasilNaik, hasilTurun, nilai, 3);
+    cout<<"hasilNaik = "<<hasilNaik<<endl;
+    cout<<"hasilTurun = "<<hasilTurun<<endl;
+ 
+    return 0;
+}
+ 
+void naik_turun(int &penaikan, int &penurunan, int nilai, int jumlah){
+    penaikan = nilai + jumlah;
+    penurunan = nilai - jumlah;
+}
+
+2.Buat program yang mengandung array dari struct
+
+#include “stdio.h”
+#include “conio.h”
+#include “string.h”
+#define maks 3
+
+struct TMhs
+{
+char NIM[9];
+char Nama[21];
+int NilaiUTS,NilaiUAS,NilaiQuis;
+float NilaiAkhir;
+char index;
+};
+
+main ()
+{
+TMhs mhs[maks];
+int i;
+for(i=0;i<maks;i++)
+
+{
+
+printf(“Pengisian Data Mahasiswa Ke-%i \n”, i+1);
+
+printf(“NIM : “);fflush(stdin);gets(mhs[i].NIM);
+
+printf(“NAMA : “);fflush(stdin);gets(mhs[i].Nama);
+
+printf(“Nilai Quiz : “);scanf(“%d”,&mhs[i].NilaiQuis);
+
+printf(“Nilai UTS : “);scanf(“%d”,&mhs[i].NilaiUTS);
+
+printf(“Nilai UAS : “);scanf(“%d”,&mhs[i].NilaiUAS); mhs[i].NilaiAkhir=0.2*mhs[i].NilaiQuis+0.3*mhs[i].NilaiUTS+0.5*mhs[i].NilaiUAS;
+
+if(mhs[i].NilaiAkhir>=80) mhs[i].index=’A‘;else
+if(mhs[i].NilaiAkhir>=60) mhs[i].index=’B‘;else
+if(mhs[i].NilaiAkhir>=40) mhs[i].index=’C‘;else
+if(mhs[i].NilaiAkhir>=20) mhs[i].index=’D‘;else
+if(mhs[i].NilaiAkhir>=0) mhs[i].index=’E‘;
+};
+clrscr();
+printf(“Data yang telah dimasukkan adalah : \n”);
+printf(“————————————————– \n”);
+printf(“| NIM | NAMA | QUIS | UTS | UAS | NA | INDEX | \n”);
+printf(“————————————————– \n”);
+for(i=0;i<maks;i++)
+{
+printf(“| %-8s | %-20s | %3i | %3i | %3i | %6.2f | %c | \n”,
+mhs[i].NIM,mhs[i].Nama,mhs[i].NilaiQuis,mhs[i].NilaiUTS,mhs[i].NilaiUAS,mhs[i].NilaiAkhir,mhs[i].index);
+}
+printf(“————————————————– \n”);
+getch();
+return 0;
+}
+
+3. Buat program sederhana yang menggunakan enum dan bit-field dalam pemrograman c++
+
+#include <iostream>
+using namespace std;
+#include <conio.h>
+
+//deklarasi bit field
+struct bit_data
+{
+      unsigned b0 : 1;
+      unsigned b1 : 1;
+      unsigned b2 : 1;
+      unsigned b3 : 1;
+      unsigned b4 : 1;
+      unsigned b5 : 1;
+      unsigned b6 : 1;
+      unsigned b7 : 1;
+};
+
+int main()
+{
+      //deklarasi union
+      union ubyte
+      {
+            unsigned char byte;
+            bit_data bit;
+      };
+
+      ubyte ascii;
+      int nilai;
+
+      cout<<"Contoh Penggunaan Bit-field"<<endl;
+      cout<<"---------------------------"<<endl;
+      cout<<"Masukkan ascii antara 0 s/d 255 : ";
+      cin>>nilai;
+
+      ascii.byte = nilai;
+      cout<<"\n7 6 5 4 3 2 1 0 << Posisi bit"<<endl;
+      cout<<ascii.bit.b7<<" "<<ascii.bit.b6<<" "
+            <<ascii.bit.b5<<" "<<ascii.bit.b4<<" "
+            <<ascii.bit.b3<<" "<<ascii.bit.b2<<" "
+            <<ascii.bit.b1<<" "<<ascii.bit.b0<<" "<<endl;
+
+      _getche();
+      return EXIT_SUCCESS;
+}
+
+
+4. Buat program sederhana yang menggunakan union dalam pemrograman c++
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+union pw
+{
+int i;
+char ch[2];
+};
+int write_int(int num, FILE *fp);
+int main()
+{
+clrscr();
+FILE *fp;
+fp = fopen("test.tmp", "w+");
+if (fp == NULL)
+{
+printf ("Tidak dapat membuka file.\n");
+exit(1);
+}
+write_int(1000, fp);
+fclose(fp);
+return 0;
+}
+//menuliskan integer menggunakan union
+int write_int(int num, FILE *fp)
+{
+union pw wrd;
+wrd.i = num;
+putc(wrd.ch[0], fp);  //menuliskan bagian pertama
+return putc(wrd.ch[1], fp);  //menuliskan bagian kedua
+}
+
+5. Buat program sederhana yang menggunakan typedef dalam pemrograman c++
+
+#include <stdio.h>
+int main()
+{
+static struct s1 {
+char c[4], *s;
+} s1 = { "abcd", "fghi" };
+
+static struct s2 {
+char *cp;
+struct S1 ss1;
+} s2 = { "klmn", { "pqrs", "uvwxy" } };
+
+printf("s1.c[2] = %c, *s1.s = %c\n", s1.c[2], *s1.s);
+printf("s1.c = %s  s1.s = %s\n", s1.c, s1.s);
+printf(" s2.cp = %s  s2.ss1.s = %s\n", s2.cp, s2.ss1.s);
+printf("++s2.cp = %s ++s2.ss1.s = %s\n",++s2.cp, ++s2.ss1.s);
+}
+
+
+6. Buat program sederhana yang menunjukkan passing by value pada struktur sebagai argumen dari fungsi
+
+#include<iostream>
+using namespace std;
+
+struct mhs {
+	char nama [20];
+	int stb;
+	float nilai;
+};
+void tampilkan(struct mhs st){
+	cout<<"Nama : "<<st.nama<<endl;
+	cout<<"Stambuk : "<<st.stb<<endl;
+	cout<<"Nilai : "<<st.nilai<<endl;
+}
+int main (){
+	mhs data_mahasiswa;
+	cout<<"Nama : "; cin>>data_mahasiswa.nama;
+		cout<<"Stambuk : "; cin>>data_mahasiswa.stb;
+	cout<<"Nilai : "; cin>>data_mahasiswa.nilai;
+	cout<<endl;
+	tampilkan (data_mahasiswa);
+	return 0;
+}
+
+
+7. Buat program sederhana yang mengandung struct to pointers
+
+#include <iostream>
+using namespace std;
+struct mhs {
+	char nama [20];
+	long long int stb;
+};
+int main (){
+struct mhs data {"Ikmar",13020190084};
+struct mhs *ptr;
+ptr = &data;
+cout<< data.nama<<" "<< data.stb<<endl;
+cout<< ptr->nama<<" "<< ptr->stb;
+return 0;
+}
