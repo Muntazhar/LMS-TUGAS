@@ -1,0 +1,87 @@
+1. Buat Program sederhana untuk merekam atau menulis data sembarang dengan nama file "datatugas5.txt"
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    ofstream myfile;
+
+    myfile.open("datatugas5.txt");
+
+    
+    myfile << "This is my program!";
+	myfile.close();
+
+}
+
+
+3. Buat program sederhana untuk menulis/merekam data mahasiswa yang terdiri dari stambuk, nama mahasiswa, kelas dan ipk. 
+Data tersebut disimpan dengan nama file objek datamhs dan nama file data “datamhs.txt”.
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    ofstream datamhs;
+
+    datamhs.open("datamhs.txt");
+    datamhs << "Stambuk : 13020190069\n";
+    datamhs << "Nama : Muhammad Al Muntazhar Madewing\n";
+    datamhs << "Kelas : A2\n";
+    datamhs << "IPK : 3,66";
+    
+    datamhs.close();
+
+}
+
+
+4. Buatlah program sederhana untuk menulis/merekam data anda yang terdiri dari stambuk, nama anda dan kelas. 
+Data tsb disimpan dengan nama file mhsFile dan nama file data “datamhs.txt”.
+
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    ofstream mhsFile;
+
+    mhsFile.open("datamhs.txt");
+
+    mhsFile << "Stambuk : 13020190069\n";
+    mhsFile << "Nama : Muhammad Al Muntazhar Madewing\n";
+    mhsFile << "Kelas : A2\n";
+
+    mhsFile.close();
+
+}
+
+
+5. Buat Program sederhana untuk membaca isi data dari file "datatugas5.txt"
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    ifstream myfile;
+
+    myfile.open("datatugas5.txt", ios::app);
+
+    
+    string data;
+    getline(myfile, data);
+    cout << data << endl;   //menampilkan teks file
+
+    myfile.close();
+
+}
+
+
+
