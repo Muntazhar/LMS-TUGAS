@@ -1,0 +1,93 @@
+1. Tulis contoh program penggunaan operator pointer dereference (&)
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+  
+     //deklarasi variabel angka dengan tipe data int
+     int angka = 90;
+
+     //deklarasi pointer angkax dengan tipe data int
+     int *angkax;
+
+     //angkax sama dengan Address Of angka (0x6ffe34)
+     //sekarang pointer angkax menunjuk ke alamat memori variabel angka
+     //atau pointer angkax berisi (menunjuk) alamat memori variabel angka
+     angkax = &angka;
+
+     cout<<"Nilai (isi) dari variabel angka : "<<angka;
+     cout<<"\nAlamat variabel angka (&angka) : "<<&angka;
+     cout<<"\nNilai yang ditunjuk pointer *angkax : "<<*angkax;
+
+     return 0;
+}
+
+4. Tulis contoh program penggunaan pointer reference (*)
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+     //deklarasi variabel x dengan tipe data int
+     int x;
+
+     //deklarasi pointer p dengan tipe data int
+     int *p;
+
+     x = 20;
+     p = &x;
+
+     cout<<"\t\t===== Program Contoh Pointer =====\n\n";
+
+     cout<<"Nilai X   \t\t: "<<x<<endl;
+     cout<<"Alamat X (&X) \t\t: "<<&x<<endl<<endl;
+
+     cout<<"Nilai yang ditunjuk *P\t: "<<*p<<endl;
+     cout<<"Alamat yang ditunjuk *P\t: "<<p<<endl;
+     cout<<"Alamat *P (&P) \t\t: "<<&p<<endl;
+
+     // mengisi nilai 30 kedalam *p / alaman yang ditunjuk pointer p
+     // untuk megisikan nilai melalui alamat pointer gunakan *
+     // karena alamat memori yang ditunjuk pointer p merupakan alamat memori variabel x
+     // maka nilai dari variabel x juga ikut berubah
+     *p = 30;
+
+     cout<<"\n\n\nNilai X   \t\t: "<<x<<endl;
+     cout<<"Alamat X (&X) \t\t: "<<&x<<endl<<endl;
+
+     cout<<"Nilai yang ditunjuk *P\t: "<<*p<<endl;
+     cout<<"Alamat yang ditunjuk *P\t: "<<p<<endl;
+     cout<<"Alamat *P (&P) \t\t: "<<&p<<endl;
+
+     return 0;
+}
+
+5. Tulis output dan jelaskan dengan singkat hasil keluaran program 
+#include int main() { int a=10; float *p; p = &a; return 0; }
+
+#include <iostream>
+
+#include <stdio.h>
+
+using namespace std;
+
+int main() {
+    
+
+int a = 10; 
+
+int *p; 
+  
+p= &a; 
+
+cout<<"Nilai a : "<<a<<endl;
+
+cout<<"Nilai &a : "<<&a<<endl<<endl;
+
+
+return 0; 
+}
